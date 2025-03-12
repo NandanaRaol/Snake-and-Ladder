@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+.game-board {
+    margin: auto;
+}
+._space3d {
+  perspective: none !important;
+}
+._space3d .defaultFace  {
+  box-shadow: inset 0 0 3px #000000;
+  background-color: #fbeded;
+  border-radius: 25px;
+}
+._space3d .defaultFace span {
+  box-shadow: none;
+}
+.board-container {
+    position: relative;  
+    width: 600px;
+    height: 600px;
+    margin-left:30px; 
+    margin-top:20px;
+}
+.button1 {
+  background-color: #4CAF50 !important;
+  border: none !important;
+  color: white !important;
+  padding: 15px 32px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+  font-size: 16px !important;
+  margin: 4px 2px !important;
+  cursor: pointer !important;
+  border-radius: 10px !important;
+  transition-duration: 0.4s !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 500 !important;
+}
+
+.button1:hover {
+  background-color: #45a049; 
+}
+
+.button1:active {
+  background-color: #3e8e41; 
+  transform: scale(0.98); 
+}
+
+.board-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 600px;
+    border-radius:10px;
+    top: 10px;  
+    left: 10px;
+    z-index: 1;  
+}
+.grid {
+    position: absolute;
+    top: 10px;
+    left:10px;
+    display: grid;
+    grid-template-columns: repeat(10, 60px);
+    grid-template-rows: repeat(10, 60px);
+    width: 600px;
+    height: 600px;
+    border-radius:10px;
+    z-index: 2; 
+}
+.cell {
+    width: 60px;
+    height: 60px;
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+}
+.player-1, .player-2, .player-3, .player-4, .player-5 {
+    position: absolute;
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: top 0.5s ease-in-out, left 0.5s ease-in-out;
+    z-index: 2;
+    transform: translate(+70%,-20%); 
+}
+.game-name {
+    font-family: 'Poppins', cursive;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #902121;
+    text-align: center;
+    margin-top: 10px;
+}
+.board-image-container {
+    display: inline-block;
+    margin-left: 4rem;
+}
+.dice-container {
+    position: absolute;
+    right: 5%;
+    top: 40%
+}
+.stats {
+    position: absolute;
+    top:25%;
+    right: 30%;
+    padding:25px;
+    width: 280px;
+    background-color: #efede8;
+    border-radius: 10px;
+}
+.winner {
+    position: absolute;
+    top: 10%;
+    right:30%;
+    padding: 15px;
+    width: 300px;
+    background-color: #efede8;
+    border-radius:17px;
+}
+.winner span {
+    font-size: 20px;
+    font-weight: 700;
+    color: #02b302;
+}
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(to left, #f12711, #9b1503);
+    text-align: center;
+    border-radius: 50px;
+}
+.close:hover {
+    cursor: pointer;
+}
+.close-icon {
+    position: relative;
+    top: 15%;
+}
+.close:active {
+    transform: scale(0.65);
+    transition: all 0.5s;
+}
+
+.save {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(to left, #2011f1, #68039b);
+    text-align: center;
+    border-radius: 50px;
+}
+.save:hover {
+    cursor: pointer;
+}
+.save-icon {
+    position: relative;
+    top: 15%;
+}
+.save:active {
+    transform: scale(0.65);
+    transition: all 0.5s;
+} 
+
+.dialog-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dialog-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .dialog-container {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .dialog-panel {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+
+  .dialog-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .dialog-enter-to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .dialog-leave-from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .dialog-leave-to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .dialog-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .dialog-icon {
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  .dialog-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .dialog-message {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .dialog-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .dialog-button.quit {
+    background-color: red;
+    color: white;
+  }
+  
+  .dialog-button.quit:hover {
+    background-color: darkred;
+  }
+  
+  .dialog-button.cancel {
+    background-color: lightgray;
+  }
+  
+  .dialog-button.cancel:hover {
+    background-color: gray;
+  }
+
+  .rolled-number {
+    position: absolute !important;
+    top: 50%;
+    left:-130%;
+    transform: translate(-50%, -50%) scale(0.1);
+    font-size: 10vw;
+    font-weight: bold;
+    color:black;
+    opacity: 0;
+    animation: showNumber 2s ease-in-out forwards;
+    z-index: 1000;
+  }
+  
+  @keyframes showNumber {
+    0% {
+        transform: translate(-50%, -50%) scale(0.1);
+        opacity: 0;
+    }
+    40% { 
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 1;
+    }
+    55% { 
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 1;
+    }
+    100% {  
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+}
+
+  

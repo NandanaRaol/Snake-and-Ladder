@@ -1,0 +1,128 @@
+
+.container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.container-description {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.container-content {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.container-content-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.container-content-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.info-text {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.play-button {
+    width: 100%;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.play-button:hover {
+    background-color: #357abd;
+}
+
+/* Dialog Box */
+.dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+}
+
+.dialog-icon1 {
+    font-size: 30px;
+    color: #f39c12;
+    margin-bottom: 10px;
+    margin-left:20px;
+}
+
+/* Dialog Buttons */
+.dialog-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.continue-button,
+.cancel-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.continue-button {
+    background: #2ecc71;
+    color: white;
+}
+
+.cancel-button {
+    background: #e74c3c;
+    color: white;
+}
+
+.continue-button:hover,
+.cancel-button:hover {
+    opacity: 0.8;
+}
